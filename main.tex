@@ -1,88 +1,10 @@
 \documentclass{amsart}
 \usepackage{amsmath, amssymb}
 \usepackage{tikz-cd}
-\usepackage{mathbbol} % mathbb on greek letters
-\usepackage{verbatim} % just for comments, remove afterwards
 
-% (hyper-)references
-\usepackage[bookmarks=true, linktocpage=true,
-bookmarksnumbered=true, breaklinks=true,
-pdfstartview=FitH, hyperfigures=false,
-plainpages=false, naturalnames=true,
-colorlinks=true, pagebackref=true,
-pdfpagelabels]{hyperref}
-\hypersetup{
-	colorlinks,
-	citecolor=blue,
-	filecolor=blue,
-	linkcolor=blue,
-	urlcolor=blue
-}
-\usepackage[capitalize, noabbrev]{cleveref}
-\crefname{subsection}{\subsect\!}{subsections}
-\let\subsect\S % copying the subsection symbol before overwriting it
+\input{style}
 
-% layout
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-1.85in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-2in}
-\calclayout
-
-% Updating to MSC2020
-\makeatletter
-\@namedef{subjclassname@2020}{%
-	\textup{2020} Mathematics Subject Classification}
-\makeatother
-
-% elements
-\newcommand{\id}{\mathsf{id}}
-\newcommand{\EZ}{EZ}
-
-% sets and spaces
-\newcommand{\N}{\mathbb{N}}
-\renewcommand{\k}{\Bbbk}
-\newcommand{\End}{\mathrm{End}}
-\newcommand{\Hom}{\mathrm{Hom}}
-\newcommand{\Bij}{\mathfrak{Bij}}
-\newcommand{\gsimplex}{\mathbb{\Delta}}
-
-% categories
-\newcommand{\C}{\mathsf{C}}
-\newcommand{\Cat}{\mathsf{Cat}}
-\newcommand{\Fun}{\mathsf{Fun}}
-\newcommand{\Set}{\mathsf{Set}}
-\newcommand{\Top}{\mathsf{Top}}
-\newcommand{\Ch}{\mathsf{Ch}}
-\newcommand{\Alg}{\mathsf{Alg}}
-\newcommand{\simplex}{\triangle}
-\newcommand{\sSet}{\mathsf{sSet}}
-
-
-% functions and functors
-\DeclareMathOperator{\Y}{\mathcal{Y}}
-\DeclareMathOperator{\chains}{N}
-
-% environments
-\newtheorem{theorem}{Theorem}
-\newtheorem*{nntheorem}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{remark}[theorem]{Remark}
-
-% other
-\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
-\newcommand{\manuel}[1]{\textcolor{red}{\underline{Federico}: #1}}
-\renewcommand{\th}{^\mathrm{th}}
-\newcommand{\bars}[1]{\vert{#1}\vert}
-\newcommand{\xra}[1]{\xrightarrow{#1}}
-\DeclareMathOperator*{\colim}{colim}
-\newcommand{\op}{\mathrm{op}}
-\DeclareMathOperator{\coker}{coker}
+\input{commands}
 
 \begin{document}
 	\title{The Eilenberg--Zilber complex and the algebra of simplicial operator}
@@ -92,6 +14,4 @@ pdfpagelabels]{hyperref}
 	\input{preliminaries}
 	\input{eilenberg_zilber}
 	\input{simplicial_operators}
-	
-	
 \end{document}
