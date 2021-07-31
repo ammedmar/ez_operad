@@ -1,8 +1,46 @@
 \section{The Eilenberg--Zilber complex}
 
-\begin{definition}
-	The \textit{$r\th$ Eilenberg--Zilber complex} is the chain complex $\EZ(r)$ of natural transformations between the functors $\chains$ and $\chains^{\otimes r}$.
-\end{definition}
-
-We now provide a more explicit description of this complex.
-By naturality, it suffices to specify the image of $\id$ ...
+Let us consider a non-negative integer $r$.
+The \textit{$r\th$ Eilenberg--Zilber complex} is the chain complex $\EZ(r)$ of natural transformations between the functors $\chains$ and $\chains^{\otimes r}$.
+Explicitly, an element $f$ in $\EZ(r)$ is a collection of linear maps
+\[
+f = \left\{ f_n \in \Hom \big( \chains(\simplex^n), \ \chains(\simplex^n)^{\otimes r} \big) \right\}_{n \in \N}
+\]
+such that, for any simplicial map $\tau \colon [n] \to [n^\prime]$ the following diagram commutes:
+\[
+\begin{tikzcd}
+\chains(\simplex^n) \arrow[r, "f_n"] \arrow[d, "\tau_\ast"] &
+\chains(\simplex^n)^{\otimes r} \arrow[d, "\tau_\ast^{\otimes r}"] \\
+\chains(\simplex^{n^\prime}) \arrow[r, "f_n"] &
+\chains(\simplex^{n^\prime})^{\otimes r}.
+\end{tikzcd}
+\]
+The grading and differential on $\EZ(r)$ are determined by its inclusion into the chain complex
+\[
+\prod_{n \in \N} \Hom \big( \chains(\simplex^n), \ \chains(\simplex^n)^{\otimes r} \big).
+\]
+By naturality, $f$ is determined by the collection
+\[
+\fhat = \left\{ \fhat_n \in \chains(\simplex^n)^{\otimes r}  \right\}_{n \in \N}
+\]
+where $\fhat_n = f_n(\id_{[n]})$.
+Explicitly, for any basis element $\tau \colon [m] \to [n]$ in $\chains(\simplex^n)$ we have
+\[
+f_n(\tau) = f_n(\tau_\ast(\id_{[m]})) = \tau_\ast^{\otimes r}(f_m(\id_{[m]})) = \tau_\ast^{\otimes r}(\fhat_n).
+\]
+Notice that, also by naturality, this collection satisfies
+\begin{equation} \label{e:normalized condition}
+s_i^{\otimes r}(\fhat_n) = 0
+\end{equation}
+for all $i \in \{0, \dots, n\}$.
+This bijection between $\EZ(r)$ and the submodule $\widehat{\EZ}(r)$ of
+\[
+\prod_{n \in \N} \chains(\simplex^n)^{\otimes r}
+\]
+satisfying condition \eqref{e:normalized condition} transfers a chain complex structure to $\widehat{\EZ}(r)$ with an element in $\fhat \in \widehat{\EZ}(r)$ having homogeneous of degree $m$ if $\deg(\fhat_n) = m+n$, and boundary recursively defined by
+\begin{align*}
+(\boundary \fhat)_0 &=
+\boundary(\fhat_0), \\
+(\boundary \fhat)_n &=
+\boundary(\fhat_n) - (-1)^{m} \sum_{i=0}^{n} \delta_{i \ast}^{\otimes r}(\fhat_{n-1}).
+\end{align*}
